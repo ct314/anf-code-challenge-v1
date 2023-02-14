@@ -60,7 +60,7 @@ public class NewsFeedImpl implements NewsFeed {
     @Default(values = NEWS_SEARCH_DEFAULT_PATH)
     protected String newsFeedPath;
 
-    protected List<NewsItem> newsResult;
+    protected List<NewsItem> newsResult = new ArrayList<>();
 
     protected int newsCount = 0;
 
@@ -75,7 +75,7 @@ public class NewsFeedImpl implements NewsFeed {
             newsFeedPath = NEWS_SEARCH_DEFAULT_PATH;
         }
 
-        newsResult = new ArrayList<>();
+        //newsResult = new ArrayList<>();
         ResourceResolver resourceResolver = resource.getResourceResolver();
         Map<String, String> queryMap = getNewsFeedQueryMap();
         SearchResult searchResult = runQuery(resourceResolver, queryMap);
@@ -95,7 +95,8 @@ public class NewsFeedImpl implements NewsFeed {
     }
 
     public List<NewsItem> getNewsFeed() {
-        return newsResult;
+        return Optional.ofNullable(newsResult).orElse(new ArrayList<>());
+        //return newsResult;
     }
 
     private NewsItem createNewsModel(Node node) {
