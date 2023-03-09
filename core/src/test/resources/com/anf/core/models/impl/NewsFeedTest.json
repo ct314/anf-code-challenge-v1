@@ -1,0 +1,9 @@
+{
+  "newsitem": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "anf-code-challenge/components/newsfeed",
+    "title": "News Test Title",
+    "author": "John Doe",
+    "description": "This is a news description"
+  }
+}

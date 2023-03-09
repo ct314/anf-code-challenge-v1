@@ -1,0 +1,19 @@
+<sly data-sly-use.newsfeed="com.anf.core.models.NewsFeed">
+    <div> hello news feed </div>
+    <sly data-sly-test="${!newsfeed.empty}">
+        <h2 class="cmp-newsfeed__title">The News</h2>
+        <div class="cmp-newsfeed">
+            <div class="cmp-newsfeed__news-container " data-sly-list.news="${newsfeed.newsFeed}">
+                <div class="cmp-newsfeed__news-item">
+                    <div class="cmp-newsfeed__news-text">
+                        <div class="cmp-newsfeed__news-image"><img class="cmp-newsfeed__news-image" data-sly-test="${news.image}" src="${news.image}" alt="${news.imageTitle}" /></div>
+                        <div class="cmp-newsfeed__news-title"> <h2>${news.title}</h2></div>
+                        <div class="cmp-newsfeed__news-date"><h4>${news.date}||${news.author}</h4></div>
+                        <div class="cmp-newsfeed__news-description"><h3>${news.description}<h3></div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+</sly>
